@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stickies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div id="mainMenu">
+
+    <div class="options" id="showNewNote" onclick="showNewNote()">
+      <button>
+        <p>New Note</p>
+      </button>
+    </div>
+    <div class="options" id="allNotes" onclick="allNotes()">
+      <button>
+        <p>Back</p>
+      </button>
+    </div>
+  </div>
+
+  <div id="mainSection">
+
+    <form id="newNoteForm">
+      <input type="text" name="title" id="newTitle" placeholder="Title Here...">
+      <br>
+      <textarea id="newContent" placeholder="What's up for today..."></textarea>
+      <br>
+      <button id="createNote">Create</button>
+    </form>
+
+    <div id="displayNotes">
+    </div>
+
+    <form id="editNoteForm">
+      <input type="text" name="title" id="editTitle">
+      <br>
+      <textarea id="editContent"></textarea>
+      <br>
+      <button id="editNote">Save</button>
+      <button id="delNote">Delete</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
