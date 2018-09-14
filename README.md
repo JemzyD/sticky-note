@@ -1,3 +1,18 @@
+How To Use Sticky-Notes
+
+Getting started
+1. Fork this repository
+2. Clone Repository to your local drive
+3. Change Directory to the folder where you cloned the repository 
+4. Open index.html
+5. Have Fun!
+
+Instructions
+1. Click on New Note button to add a note
+2. Fill in title and content and click on create 
+3. Click on the displayed note to edit or delete it
+4. To search, enter the title of the note in search bar
+
 # Sticky Note Application - Front-End assignment
 
 This page contains description and requirements for a Front-End assignment on Vanilla **Javascript**, **HTML5**, **CSS3**.
