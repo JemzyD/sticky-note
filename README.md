@@ -1,4 +1,4 @@
-How To Use Sticky-Notes
+# Sticky Notes - How to use
 
 Getting started
 1. Fork this repository
