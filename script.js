@@ -20,6 +20,13 @@ function createNoteBody(note, titlePart, contentPart) {
   displayNotes.appendChild(newNote);
 }
 
+// removes previous one, no duplicates
+function clearBody() {
+  while (displayNotes.firstChild) {
+    displayNotes.removeChild(displayNotes.firstChild);
+  }
+}
+
 // toggles between the main page options
 function showContent(type) {
   switch (type) {
@@ -45,6 +52,7 @@ function showContent(type) {
 //displays all the sticky notes
 function allNotes() {
   showContent("allNotes");
+  clearBody();
   var allNotes = window.localStorage;
   for (var note in allNotes) {
     if (note.includes("stickyNote")) {
@@ -61,6 +69,7 @@ function searchNotes() {
   var search = document.getElementById("searchInput").value.toLowerCase();
   var storage = window.localStorage;
   var savedNote;
+  clearBody();
   for (var note in storage) {
     if (note.slice(0, 10) == "stickyNote") {
       savedNote = JSON.parse(localStorage.getItem(note));
