@@ -54,6 +54,24 @@ function allNotes() {
   }
 }
 
+// shows only searched sticky notes
+function searchNotes() {
+  showContent("allNotes");
+
+  var search = document.getElementById("searchInput").value.toLowerCase();
+  var storage = window.localStorage;
+  var savedNote;
+  for (var note in storage) {
+    if (note.slice(0, 10) == "stickyNote") {
+      savedNote = JSON.parse(localStorage.getItem(note));
+      savedNoteTitle = savedNote["title"].toLowerCase();
+      if (savedNoteTitle.includes(search)) {
+        createNoteBody(note, savedNote["title"], savedNote["content"]);
+      }
+    }
+  }
+}
+
 // displays the create a new note page
 function showNewNote() {
   showContent("newNote");
@@ -132,8 +150,11 @@ function editNote(e) {
 // deleting a sticky note
 function delNote(e) {
   e.preventDefault();
+  var confirmation = confirm("Are You Sure?");
   var noteData = editNoteForm.getAttribute("id-noteData");
-  localStorage.removeItem("stickyNote" + noteData);
+  if (confirmation === true) {
+    localStorage.removeItem("stickyNote" + noteData);
+  }
   allNotes();
 }
 
@@ -142,6 +163,9 @@ window.onload = function() {
   allNotes();
 
   document.getElementById("createNote").addEventListener("click", createNote);
+
+  // mimics auto complete search function
+  document.getElementById("searchNotes").addEventListener("keyup", searchNotes);
 
   document.getElementById("editNote").addEventListener("click", editNote);
   document.getElementById("delNote").addEventListener("click", delNote);
